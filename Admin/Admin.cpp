@@ -32,22 +32,21 @@ int main() {
 			cout << "2 - delete operator" << endl;
 			cout << "3 - edit operator" << endl;
 
-			cout << "5 - add city" << endl;
-			cout << "6 - delete city" << endl;
-			cout << "7 - edit city" << endl;
+			cout << "4 - add city" << endl;
+			cout << "5 - delete city" << endl;
+			cout << "6 - edit city" << endl;
 
-			cout << "8 - seen list of flight" << endl;
+			cout << "7 - seen list of flight" << endl;
 			cout << "choise>>>>";
 			cin >> choise;
 			switch(choise){
 			case 1: cout << "add oper"; break;
-			case 2: cout << "add city"; break;
-			case 3: cout << "seen list"; break;
-			case 4: cout << "seen list"; break;
-			case 5: cout << "seen list"; break;
-			case 6: cout << "seen list"; break;
+			case 2: cout << "delete operator"; break;
+			case 3: cout << "edit operator"; break;
+			case 4: cout << "add city"; break;
+			case 5: cout << "delete city"; break;
+			case 6: cout << "edit city"; break;
 			case 7: cout << "seen list"; break;
-			case 8: cout << "seen list"; break;
 			}
 		} while (choise != 0);
 		

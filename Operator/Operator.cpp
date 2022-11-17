@@ -1,4 +1,4 @@
-#include <iostream>
+#include <iostream>"
 #include <fstream>
 #include <string>
 #include <map>
@@ -44,9 +44,9 @@ int main() {
 				cout << "choise>>>>";
 				cin >> choise;
 				switch (choise) {
-				case 1: cout << "add oper"; break;
-				case 2: cout << "add city"; break;
-				case 3: cout << "seen list"; break;
+				case 1: cout << "add flight"; break;
+				case 2: cout << "delete flight"; break;
+				case 3: cout << "edit flight"; break;
 				case 4: cout << "seen list"; break;
 				}
 			} while (choise != 0);
