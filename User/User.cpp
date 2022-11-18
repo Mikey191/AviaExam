@@ -1,4 +1,10 @@
 #include <iostream>
+#include <fstream>
+#include <string>
+#include <map>
+#include "..\\Classes\Tickets.h"
+#include "..\\Classes\Flights.h"
+#include "..\\Classes\Cities.h"
 using namespace std;
 
 int main() {
@@ -6,6 +12,9 @@ int main() {
 	//ввод города прибытия и получения списка рейсов на из такого города
 	//ввод города выбытия и прибытия и получения списка рейсов на из такого города
 	//бронирование билета на рейс
+	Tickets ticket;
+	Flights flight;
+	Cities city;
 	cout << "User" << endl;
 	int choise;
 	do {
@@ -15,16 +24,17 @@ int main() {
 
 		cout << "1 - enter up city and choise flight" << endl;
 		cout << "2 - enter down city and choise flight" << endl;
-		cout << "3 - edit flight" << endl;
+		cout << "3 - enter up and down city and choise flight" << endl;
 
-		cout << "4 - seen list of passanger on flight" << endl;
+		cout << "4 - booking ticket" << endl;
 		cout << "choise>>>>";
 		cin >> choise;
 		switch (choise) {
-		case 1: cout << "add flight"; break;
-		case 2: cout << "delete flight"; break;
-		case 3: cout << "edit flight"; break;
-		case 4: cout << "seen list"; break;
+		case 1: flight.print_flight_up_cities(); break;//class Flights
+		case 2: flight.print_flight_down_cities(); break;//class Flights
+		case 3: flight.print_flight_up_down_cities(); break;//class Flights
+		case 4: ticket.add_ticket(); break;//class Tickets
+		case 5: ticket.print_tickets_for_number_flight(); break;
 		}
 	} while (choise != 0);
 	system("pause");

@@ -6,9 +6,9 @@
 #include "Cities.h"
 using namespace std;
 
-//struct _date {
-//    int day, month, year;
-//};
+struct _date {
+    int day, month, year;
+};
 //struct _time {
 //    int hour, min;
 //};
@@ -48,4 +48,7 @@ public:
     void delete_flight();
     void edit_flight();
     void print_flight();
+    void print_flight_up_cities();
+    void print_flight_down_cities();
+    void print_flight_up_down_cities();
 };

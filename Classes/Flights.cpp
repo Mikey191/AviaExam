@@ -104,3 +104,50 @@ void Flights::print_flight()
 	}
 	system("pause");
 }
+
+void Flights::print_flight_up_cities()
+{
+	string up_city;
+	cout << "enter up city: ";
+	cin >> up_city;
+	for (auto& it_flight : flights) {
+		if (it_flight.second.up_city == up_city) {
+			cout << it_flight.second.number_flight << endl;
+			cout << it_flight.second.up_city << endl;
+			cout << it_flight.second.down_city << endl;
+		}
+	}
+	system("pause");
+}
+
+void Flights::print_flight_down_cities()
+{
+	string down_city;
+	cout << "enter down city: ";
+	cin >> down_city;
+	for (auto& it_flight : flights) {
+		if (it_flight.second.down_city == down_city) {
+			cout << it_flight.second.number_flight << endl;
+			cout << it_flight.second.up_city << endl;
+			cout << it_flight.second.down_city << endl;
+		}
+	}
+	system("pause");
+}
+
+void Flights::print_flight_up_down_cities()
+{
+	string up_city, down_city;
+	cout << "enter up city: ";
+	cin >> up_city;
+	cout << "enter down city: ";
+	cin >> down_city;
+	for (auto& it_flight : flights) {
+		if (it_flight.second.up_city == up_city && it_flight.second.down_city == down_city) {
+			cout << it_flight.second.number_flight << endl;
+			cout << it_flight.second.down_city << endl;
+			cout << it_flight.second.up_city << endl;
+		}
+	}
+	system("pause");
+}
