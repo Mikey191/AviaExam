@@ -10,7 +10,7 @@ int main() {
 	//просмотр списка пассажиров на рейс
 	cout << "Operator" << endl;
 	//проверка на существование логина оператора
-	ifstream is("..\\db\\admin.txt");
+	ifstream is("..\\db\\operators.txt");
 	map<string, string> operators;
 	string is_login, is_password;
 	while (!is.eof()) {

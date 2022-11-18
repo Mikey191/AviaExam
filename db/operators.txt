@@ -1,0 +1,4 @@
+opr1
+pas1
+opr2
+pas2

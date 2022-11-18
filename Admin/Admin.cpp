@@ -1,12 +1,25 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <cstdlib>
+#include <map>
+#include "..\\Classes\Cities.h"
 using namespace std;
+
+void load_operators(map<string, string>& _operators);
+void save_operators(map<string, string>& _operators);
+
+void print_operators(map<string, string>& _operators);
+void add_operator(map<string, string>& _operators);
+void edit_operator(map<string, string>& _operators);
+void delete_operator(map<string, string>& _operators);
 
 int main() {
 	//добавляет оператора
 	//добавляет города
 	//просматривает список рейсов
+	Cities _cities;
+	map<string, string> _operators;
 	cout << "Admin" << endl;
 	//сделать проверку на логин пароль админа(они будут храниться в отдельном файле)
 	ifstream is("..\\db\\admin.txt");
@@ -40,13 +53,13 @@ int main() {
 			cout << "choise>>>>";
 			cin >> choise;
 			switch(choise){
-			case 1: cout << "add oper"; break;
+			case 1: add_operator(_operators); break;
 			case 2: cout << "delete operator"; break;
 			case 3: cout << "edit operator"; break;
-			case 4: cout << "add city"; break;
+			case 4: _cities.add_city(); break;
 			case 5: cout << "delete city"; break;
 			case 6: cout << "edit city"; break;
-			case 7: cout << "seen list"; break;
+			case 7: print_operators(_operators); break;
 			}
 		} while (choise != 0);
 		
@@ -57,4 +70,73 @@ int main() {
 
 	system("pause");
 	return 0;
+}
+
+void load_operators(map<string, string>& _operators)
+{
+	ifstream is("..\\db\\operators.txt");
+	string operator_login, operator_password;
+	if (is) {
+		while (!is.eof()) {
+			is >> operator_login;
+			is >> operator_password;
+			_operators.insert(make_pair(operator_login, operator_password));
+		}
+	}
+	is.close();
+
+}
+
+void save_operators(map<string, string>& _operators)
+{
+	ofstream os("..\\db\\operators.txt");
+	for (auto& it_operator : _operators) {
+		os << it_operator.first << endl;
+		os << it_operator.second << endl;
+	}
+	os.close();
+}
+
+void print_operators(map<string, string>& _operators)
+{
+	load_operators(_operators);
+
+	for (auto it_operator : _operators) {
+		cout << it_operator.first << " " << it_operator.second << endl;
+	}
+	system("pause");
+}
+
+void add_operator(map<string, string>& _operators)
+{
+	load_operators(_operators);
+
+	string operator_login, operator_password;
+	cout << "enter operators login: ";
+	cin >> operator_login;
+	cout << "enter operators password: ";
+	cin >> operator_password;
+	for (auto& it_operators : _operators) {
+		if (it_operators.first != operator_login) {
+			_operators.insert(make_pair(operator_login, operator_password));
+		}
+		else cout << "this login is already in use" << endl;
+	}
+
+	save_operators(_operators);
+}
+
+void edit_operator(map<string, string>& _operators)
+{
+	load_operators(_operators);
+
+
+	save_operators(_operators);
+}
+
+void delete_operator(map<string, string>& _operators)
+{
+	load_operators(_operators);
+
+	save_operators(_operators);
 }
