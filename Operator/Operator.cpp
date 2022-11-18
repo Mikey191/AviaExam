@@ -1,14 +1,19 @@
-#include <iostream>"
+#include <iostream>
 #include <fstream>
 #include <string>
 #include <map>
+#include "..\\Classes\Cities.h"
+#include "..\\Classes\Flights.h"
 using namespace std;
-
+//авторизация
+//добавление рейсов
+//просмотр списка пассажиров на рейс
 int main() {
-	//авторизация
-	//добавление рейсов
-	//просмотр списка пассажиров на рейс
 	cout << "Operator" << endl;
+	Cities all_city;
+	Flights all_flights;
+	cout << "Operator..." << endl;
+	system("pause");
 	//проверка на существование логина оператора
 	ifstream is("..\\db\\operators.txt");
 	map<string, string> operators;
@@ -44,10 +49,10 @@ int main() {
 				cout << "choise>>>>";
 				cin >> choise;
 				switch (choise) {
-				case 1: cout << "add flight"; break;
-				case 2: cout << "delete flight"; break;
+				case 1: all_flights.add_flight(all_city); break;
+				case 2: all_flights.delete_flight(); break;
 				case 3: cout << "edit flight"; break;
-				case 4: cout << "seen list"; break;
+				case 4: all_flights.print_flight(); break;
 				}
 			} while (choise != 0);
 		}

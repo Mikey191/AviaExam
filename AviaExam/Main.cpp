@@ -2,10 +2,8 @@
 using namespace std;
 
 int main() {
-	//реализовать запуск выполнения определенной программы(админ, оператор, юзер)
-
 	int choise;
-	
+
 	do {
 		system("cls");
 		cout << "\tGeneral" << endl;
