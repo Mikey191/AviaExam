@@ -90,7 +90,7 @@ void Tickets::print_tickets_for_number_flight()
 	for (auto& it_tickets : tickets) {
 		if (it_tickets.first == temp_number_flight) {
 			flag = 1;
-			cout << "Number fio: " << it_tickets.second.fio_passanger << endl;
+			cout << "Number flight: " << temp_number_flight << "\tFio: " << it_tickets.second.fio_passanger << endl;
 		}
 	}
 	if (!flag) cout << "Flight " << temp_number_flight << " have no passanger!" << endl;

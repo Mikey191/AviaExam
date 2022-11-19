@@ -10,12 +10,9 @@ using namespace std;
 //добавление рейсов
 //просмотр списка пассажиров на рейс
 int main() {
-	cout << "Operator" << endl;
 	Cities all_city;
 	Flights all_flights;
 	Tickets all_tickets;
-	cout << "Operator..." << endl;
-	system("pause");
 	//проверка на существование логина оператора
 	ifstream is("..\\db\\operators.txt");
 	map<string, string> operators;
