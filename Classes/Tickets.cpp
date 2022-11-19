@@ -41,6 +41,7 @@ void Tickets::add_ticket()
 	int ticket_birth_day, ticket_birth_month, ticket_birth_year;
 	cout << "enter number flight: ";
 	cin >> ticket_number_flight;
+
 	cout << "enter fio: ";
 	cin >> ticket_fio;
 	cout << "enter birth day passanger: ";
@@ -57,13 +58,21 @@ void Tickets::add_ticket()
 	temp_ticket.date_birthday_passenger.year = ticket_birth_year;
 
 	tickets.insert(make_pair(temp_ticket.number_flight, temp_ticket));
+
+	system("cls");
+	cout << "\tYour ticket" << endl;
+	cout << "Number flight: " << temp_ticket.number_flight << endl;
+	cout << "Fio: " << temp_ticket.fio_passanger << endl;
+	cout << "Date birthday: " << temp_ticket.date_birthday_passenger.day << "." << temp_ticket.date_birthday_passenger.month << "." << temp_ticket.date_birthday_passenger.year << endl;
+
+	system("pause");
 }
 
 void Tickets::print_all_tickets()
 {
 	for (auto& it_tickets : tickets) {
 			cout << "Number flight: " << it_tickets.second.number_flight << endl;
-			cout << "Number fio: " << it_tickets.second.fio_passanger << endl;
+			cout << "Fio: " << it_tickets.second.fio_passanger << endl;
 			cout << "Date birthday: " << it_tickets.second.date_birthday_passenger.day << "." << it_tickets.second.date_birthday_passenger.month << "." << it_tickets.second.date_birthday_passenger.year << endl;
 			cout << "=====" << endl;
 	}

@@ -150,7 +150,7 @@ void edit_operator(map<string, string>& _operators)
 				break;
 			case 2:
 				string new_login, new_password;
-				_operators[temp_login].erase();
+				_operators.erase(temp_login);
 				cout << "enter new login: ";
 				cin >> new_login;
 				cout << "enter new password: ";
@@ -176,7 +176,7 @@ void delete_operator(map<string, string>& _operators)
 	for (auto& it_operators : _operators) {
 		if (it_operators.first == temp_login) {
 			flag = true;
-			_operators[temp_login].erase();
+			_operators.erase(temp_login);
 		}
 	}
 	if (!flag) cout << "Login " << temp_login << " is not found!" << endl;

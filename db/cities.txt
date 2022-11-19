@@ -1,5 +1,7 @@
 astana
 erevan
+kazan
 moskva
 nalchik
 piter
+vladivostok
