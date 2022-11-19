@@ -6,12 +6,16 @@ Tickets::Tickets()
 	_ticket temp_ticket;
 	string temp_number_flight;
 	while (!is.eof()) {
-		is >> temp_ticket.number_flight;
-		is >> temp_ticket.fio_passanger;
-		is >> temp_ticket.date_birthday_passenger.day;
-		is >> temp_ticket.date_birthday_passenger.month;
-		is >> temp_ticket.date_birthday_passenger.year;
-		tickets.insert(make_pair(temp_ticket.number_flight, temp_ticket));
+		is >> temp_number_flight;
+		if (temp_number_flight == "") break;
+		else {
+			temp_ticket.number_flight = temp_number_flight;
+			is >> temp_ticket.fio_passanger;
+			is >> temp_ticket.date_birthday_passenger.day;
+			is >> temp_ticket.date_birthday_passenger.month;
+			is >> temp_ticket.date_birthday_passenger.year;
+			tickets.emplace(make_pair(temp_ticket.number_flight, temp_ticket));
+		}
 	}
 	is.close();
 }
@@ -20,11 +24,11 @@ Tickets::~Tickets()
 {
 	ofstream os("..\\db\\tickets.txt");
 	for (auto& it_ticket : tickets) {
-		os << it_ticket.second.number_flight;
-		os << it_ticket.second.fio_passanger;
-		os << it_ticket.second.date_birthday_passenger.day;
-		os << it_ticket.second.date_birthday_passenger.month;
-		os << it_ticket.second.date_birthday_passenger.year;
+		os << it_ticket.second.number_flight << endl;
+		os << it_ticket.second.fio_passanger << endl;
+		os << it_ticket.second.date_birthday_passenger.day << endl;
+		os << it_ticket.second.date_birthday_passenger.month << endl;
+		os << it_ticket.second.date_birthday_passenger.year << endl;
 	}
 	os.close();
 }
@@ -55,13 +59,33 @@ void Tickets::add_ticket()
 	tickets.insert(make_pair(temp_ticket.number_flight, temp_ticket));
 }
 
-void Tickets::print_tickets_for_number_flight()
+void Tickets::print_all_tickets()
 {
 	for (auto& it_tickets : tickets) {
-		cout << "Number flight: " << it_tickets.second.number_flight << endl;
-		cout << "Number fio: " << it_tickets.second.fio_passanger << endl;
-		cout << "Date birthday: " << it_tickets.second.date_birthday_passenger.day << "." << it_tickets.second.date_birthday_passenger.month << "." << it_tickets.second.date_birthday_passenger.year << endl;
-		cout << "=====" << endl;
+			cout << "Number flight: " << it_tickets.second.number_flight << endl;
+			cout << "Number fio: " << it_tickets.second.fio_passanger << endl;
+			cout << "Date birthday: " << it_tickets.second.date_birthday_passenger.day << "." << it_tickets.second.date_birthday_passenger.month << "." << it_tickets.second.date_birthday_passenger.year << endl;
+			cout << "=====" << endl;
 	}
 	system("pause");
 }
+
+void Tickets::print_tickets_for_number_flight()
+{
+	string temp_number_flight;
+	cout << "\tList passanger" << endl;
+	cout << "enter Flight number: ";
+	cin >> temp_number_flight;
+	bool flag = 0;
+	cout << "List passanger on "<< temp_number_flight << "flight:" << endl;
+	for (auto& it_tickets : tickets) {
+		if (it_tickets.first == temp_number_flight) {
+			flag = 1;
+			cout << "Number fio: " << it_tickets.second.fio_passanger << endl;
+		}
+	}
+	if (!flag) cout << "Flight " << temp_number_flight << " have no passanger!" << endl;
+	system("pause");
+}
+
+

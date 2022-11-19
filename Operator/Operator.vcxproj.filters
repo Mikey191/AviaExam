@@ -24,12 +24,18 @@
     <ClCompile Include="..\Classes\Flights.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\Tickets.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Classes\Cities.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="..\Classes\Flights.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\Tickets.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

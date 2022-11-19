@@ -37,7 +37,7 @@ Flights::Flights()
 Flights::~Flights()
 {
 	ofstream os("..\\db\\flights.txt");
-	for (auto it_flight : flights) {
+	for (auto& it_flight : flights) {
 		os << it_flight.second.number_flight << endl;
 		os << it_flight.second.up_city << endl;
 		os << it_flight.second.down_city << endl;
@@ -92,15 +92,31 @@ void Flights::delete_flight()
 
 void Flights::edit_flight()
 {
-
+	bool flag = 0;
+	string temp_number_flight;
+	cout << "\tEditor" << endl;
+	cout << "enter number flight for edit: ";
+	cin >> temp_number_flight;
+	for (auto& it_flight : flights) {
+		if (it_flight.first == temp_number_flight) {
+			flag = true;
+			cout << "new up city: ";
+			cin >> it_flight.second.up_city;
+			cout << "new down city: ";
+			cin >> it_flight.second.down_city;
+		}
+	}
+	if (!flag) cout << "Flight whith " << temp_number_flight << " number is not found!" << endl;
+	system("pause");
 }
 
-void Flights::print_flight()
+void Flights::print_flights()
 {
-	for (auto it_flight : flights) {
+	for (auto& it_flight : flights) {
 		cout << "Number flight: " << it_flight.second.number_flight << endl;
 		cout << "Up city: " << it_flight.second.up_city << endl;
 		cout << "Down city: " << it_flight.second.down_city << endl;
+		cout << endl;
 	}
 	system("pause");
 }

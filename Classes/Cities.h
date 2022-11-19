@@ -12,6 +12,7 @@ public:
 	~Cities();
 	void add_city();
 	void print_cities();
+	void delete_city();
 	set<string> GetCities();
 };
 

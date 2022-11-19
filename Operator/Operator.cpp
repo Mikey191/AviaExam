@@ -4,6 +4,7 @@
 #include <map>
 #include "..\\Classes\Cities.h"
 #include "..\\Classes\Flights.h"
+#include "..\\Classes\Tickets.h"
 using namespace std;
 //авторизация
 //добавление рейсов
@@ -12,6 +13,7 @@ int main() {
 	cout << "Operator" << endl;
 	Cities all_city;
 	Flights all_flights;
+	Tickets all_tickets;
 	cout << "Operator..." << endl;
 	system("pause");
 	//проверка на существование логина оператора
@@ -43,7 +45,7 @@ int main() {
 
 				cout << "1 - add flight" << endl;
 				cout << "2 - delete flight" << endl;
-				cout << "3 - edit flight" << endl;
+				cout << "3 - edit flight(flight number)" << endl;
 
 				cout << "4 - seen list of passanger on flight" << endl;
 				cout << "choise>>>>";
@@ -51,8 +53,8 @@ int main() {
 				switch (choise) {
 				case 1: all_flights.add_flight(all_city); break;
 				case 2: all_flights.delete_flight(); break;
-				case 3: cout << "edit flight"; break;
-				case 4: all_flights.print_flight(); break;
+				case 3: all_flights.edit_flight(); break;
+				case 4: all_tickets.print_tickets_for_number_flight(); break;
 				}
 			} while (choise != 0);
 		}

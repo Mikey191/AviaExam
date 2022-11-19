@@ -18,6 +18,7 @@ public:
 	Tickets();
 	~Tickets();
 	void add_ticket();
+	void print_all_tickets();
 	void print_tickets_for_number_flight();
 };
 

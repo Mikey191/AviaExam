@@ -47,7 +47,7 @@ public:
     void add_flight(Cities& _cities);
     void delete_flight();
     void edit_flight();
-    void print_flight();
+    void print_flights();
     void print_flight_up_cities();
     void print_flight_down_cities();
     void print_flight_up_down_cities();

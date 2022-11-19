@@ -11,10 +11,6 @@ Cities::Cities()
 Cities::~Cities()
 {
 	ofstream os("..\\db\\cities.txt");
-	//for (auto it = name_city.begin(); it != name_city.end(); ++it) {
-	//	os << *it << endl;
-	//}
-	
 	for (auto& it_city : name_city) {
 		os << it_city << endl;
 	}
@@ -23,6 +19,7 @@ Cities::~Cities()
 
 void Cities::add_city()
 {
+	system("cls");
 	string temp_name_city;
 	cout << "enter city for add: ";
 	cin >> temp_name_city;
@@ -31,13 +28,28 @@ void Cities::add_city()
 
 void Cities::print_cities()
 {
-	for (auto it_city: name_city)
+	system("cls");
+	cout << "\tAll cities" << endl;
+	for (auto& it_city: name_city)
 		cout << it_city << endl;
+	system("pause");
+}
 
-	//for (auto it = name_city.begin(); it != name_city.end(); ++it) {
-	//	cout << *it << endl;
-	//}
-
+void Cities::delete_city()
+{
+	system("cls");
+	string temp_city;
+	bool flag = false;
+	cout << "\tdelete city" << endl;
+	cout << "enter city for delete: ";
+	cin >> temp_city;
+	for (auto& it_city : name_city) {
+		if (it_city == temp_city) {
+			flag = true;
+			name_city.erase(temp_city);
+		}
+	}
+	if (!flag) cout << "city " << temp_city << " is not found";
 	system("pause");
 }
 

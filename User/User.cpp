@@ -27,6 +27,7 @@ int main() {
 		cout << "3 - enter up and down city and choise flight" << endl;
 
 		cout << "4 - booking ticket" << endl;
+		cout << "5 - print all tickets" << endl;
 		cout << "choise>>>>";
 		cin >> choise;
 		switch (choise) {
@@ -34,7 +35,7 @@ int main() {
 		case 2: flight.print_flight_down_cities(); break;//class Flights
 		case 3: flight.print_flight_up_down_cities(); break;//class Flights
 		case 4: ticket.add_ticket(); break;//class Tickets
-		case 5: ticket.print_tickets_for_number_flight(); break;
+		case 5: ticket.print_all_tickets(); break;
 		}
 	} while (choise != 0);
 	system("pause");
